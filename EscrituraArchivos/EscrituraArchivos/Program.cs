@@ -14,24 +14,22 @@ namespace EscrituraArchivos
             StreamWriter sw = new StreamWriter("ejemplo.txt", true);
             //Si el archivo no existe lo creará
             //Si ya existe, esxribirá en él
-            string Name;
             int num;
-            Console.WriteLine("Cuantos nombres desea ingresar? ");
+            Console.WriteLine("Cuantos carros desea ingresar? ");
             num = int.Parse(Console.ReadLine());
-            for (int i = 0; i < num; i++)
+            for (int i = 1; i <= num; i++)
             {
-                Console.WriteLine("Digite el nombre que desea ingresar: ");
-                Name = Console.ReadLine();
-                string[] lines =
-                {
-                    Name
-                };
-
-                //Recorrer el arreglo
-                foreach (string line in lines)
-                {
-                    sw.WriteLine(line); //Escribe en el archivo
-                }
+                Console.WriteLine("Carro #" + i);
+                Console.WriteLine("¿Que año es?");
+                int newAño = int.Parse(Console.ReadLine());
+                Console.WriteLine("¿Que marca es?");
+                string newMarca = Console.ReadLine();
+                Console.WriteLine("¿Que color es?");
+                string newColor = Console.ReadLine();
+                Vehiculo vehiculo = new Vehiculo(newAño, newMarca, newColor);
+                Console.Clear();
+                sw.WriteLine(vehiculo.año + " " + vehiculo.marca + " " + vehiculo.color); //Escribe en el archivo
+                
             }
                 sw.Close(); //Se debe cerrar el archivo
 
